@@ -1,0 +1,80 @@
+#include<iostream>
+using namespace std;
+struct node
+{
+	double data;
+	node* next;
+};
+
+class list 
+{
+	private:
+	node *head, *tail;
+	
+	public:
+	list();
+	void create_node(double value);
+	void display();
+	void insert_start(double value);
+	
+	void insert_position(int pos, double value);
+	void delete_first();
+	void delete_last();
+	void delete_position(int pos);
+};
+#include"LinkList.h"
+int main()
+{
+	list obj;
+	
+	obj.create_node(25);
+	obj.create_node(50);
+	obj.create_node(90);
+	obj.create_node(40);
+	obj.create_node(55);
+	
+	cout << "\n------------------------------------------------\n ";
+	cout << "---------------Displaying All Nodes---------------";
+	cout << "\n------------------------------------------------\n ";
+    obj.display();
+	
+	cout << "\n-------------------------------------------\n ";
+	cout << "---------------Inserting At End---------------";
+	cout << "\n-------------------------------------------\n ";
+    obj.create_node(15);
+	obj.display();
+	
+	cout << "\n----------------------------------------------\n ";
+	cout << "---------------Inserting At Start---------------";
+	cout << "\n----------------------------------------------\n ";
+    obj.insert_start(10);
+	obj.display();
+
+	cout << "\n------------------------------------------------\n ";
+	cout << "---------------Inserting At Particular------------";
+	cout << "\n------------------------------------------------\n ";
+    obj.insert_position(3, 60);
+	obj.display();
+
+	cout << "\n---------------------------------------------\n ";
+	cout << "---------------Deleting At Start---------------";
+	cout << "\n---------------------------------------------\n ";
+    obj.delete_first();
+	obj.display();
+
+	cout << "\n-------------------------------------------\n ";
+	cout << "---------------Deleting At End---------------";
+	cout << "\n-------------------------------------------\n ";
+    obj.delete_last();
+	obj.display();
+	
+	cout << "\n------------------------------------------------\n ";
+	cout << "---------------Deleting At Particular-------------";
+	cout << "\n------------------------------------------------\n ";
+    obj.delete_position(4);
+	obj.display();
+	
+	cout << "\n--------------------------------\n ";
+	system ("pause");
+	return 0;
+}
